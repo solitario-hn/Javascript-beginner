@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body{
+      background-color:hotpink;
+
+    }
+    p{
+      color: aqua;
+    }
+    button{
+      color: blanchedalmond;
+      text-decoration: doubleS;
+      background-color: blueviolet;
+    }
+
+    </style>
+    <title>DOM</title>
+
+
+  </head>
+  <body>
+    <p>
+      Document object Model
+    </p>
+    <button class="test">
+        Hello
+    </button>
+    
+      
+    <script>
+      //console.log(document.body);   //returns the whole body tag and everything inside it .
+      //console.log(document.body.innerHTML); //returns the html inside the body tag
+      
+      //console.log(typeof document.body);  //object type [body tag is object type]
+
+      //console.log(typeof document.body.innerHTML); //returns the html code inside the body tag in string format
+
+      /*document.title='Document Object Model';
+      document.body.innerHTML='<p>this is paragraph inserting using dom</p> <button id="first"> a new button</button> <button class="js-second">sample</button> <h4> a inserted heading</h4>';*/
+
+      //console.log(document.querySelector('button')); //by default access a new button 
+
+      //console.log(document.querySelector('.js-second').innerHTML);  //by using . we can access specfic html tag using its class and further access its inner html.
+
+    </script>
+  </body>
+</html>

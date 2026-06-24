@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .fundamental{
+        border:1px;
+        color: black;
+        background-color: aquamarine;
+      }
+      .winner{
+        border: 2px;
+        color:darkred;
+        background-color: burlywood;
+      }
+      .loser{
+        color: palevioletred;
+        background-color: aliceblue;
+      }
+      .reset{
+        color: chocolate;
+        background-color: aqua;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>This is a crucial match</h1>
+    <p><button onclick="console.log(`aura points:${aura}`);" class="fundamental">
+      Show points
+    </button>
+    <button onclick="alert('Omg you so funny🥰😘'); aura+=1; console.log(`Aura increased 📈\n Aura points ${aura}`)" class="winner">
+      Aura Point
+    </button>
+    <button ondblclick="alert('BOOOOOO!!UNFUNNYY  F OFF.🤓');aura-=1;console.log(`Aura---📉\nAura points:${aura}`)" class="winner" title="'loser">
+      UNFUNNYY
+    </button>
+    <button class="reset" onclick="aura=0; console.log(`Funnies reset\nAura points:${aura}`);alert('Reset')">
+      Reset
+    </button>
+  
+    <script>
+      let aura=0;
+    </script>
+
+  </body>
+</html>

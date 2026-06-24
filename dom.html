@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon Shipping Calculator</title>
+    <style>
+      body{
+        background-color: blanchedalmond;
+      }
+      .title{
+        text-align: center;
+        text-decoration: underline;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1 class="title">Amazon Shipping Calculator</h1> 
+    <h2>Orders under $50 have =+$10 Shipping charge</h2>
+    <h3>Orders under $100 =+$5 Shipping charge</h3>
+    <h4>Orders over $50=Free Shipping</h4>
+    <p><input class="input" onkeydown="enter(event);" placeholder="Cost of order" > <button onclick="cost();">Calculate</button></p>
+    <p class="cost"></p>
+
+    <script>
+      function cost(){
+        let cost=+document.querySelector('.input').value;  //'+' adding to a string changes it into integer completely(all stringshould be of numbers).
+        console.log(cost);
+        if(cost<=50){
+          document.body.querySelector('.cost').innerHTML=`COST:$${cost+10}`;
+        }
+        else if(cost>50&&cost<=100){
+          document.querySelector('.cost').innerHTML=`COST:$${cost+5}`;
+        }
+        else{
+          document.querySelector('.cost').innerHTML=`COST:$${cost}`;
+        }
+      }
+      function enter(event){  //since even is an object for onkeydown only it needs to be passed as parameter to use in different function.
+        if(event.key==='Enter'){
+          console.log(event.key);
+          cost();
+        }
+        else{
+          console.log('typing')
+        }
+      }
+      
+
+    </script>
+  </body>
+</html> 

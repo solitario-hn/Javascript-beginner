@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Game of luck
+    </title>
+    <style>
+      body{
+      background-image:url(https://www.hollywoodreporter.com/wp-content/uploads/2026/04/GettyImages-2270303151-1.jpg?w=2000&h=1126&crop=1);
+      background-size:800px;
+      background-position: center;
+      background-repeat:no-repeat;
+      min-height: 100vh;
+      background-color: black;
+    }
+    .title{
+      background-color:black;
+      color: aqua;
+      text-align: center;
+    }
+    .rock{
+      background-color: black;
+      size: 5050px;
+      width: 70px;       /* Must be equal to height */
+      height: 70px;      /* Must be equal to width */
+      border-radius: 50%; /* Makes it a circle */
+      padding: 0;        /* Clear default padding */
+  }
+    .paper{
+      background-color: black;
+      size: 5050px;
+      width: 70px;       /* Must be equal to height */
+      height: 70px;      /* Must be equal to width */
+      border-radius: 50%; /* Makes it a circle */
+      padding: 0;        /* Clear default padding */
+    }
+    .scissors{
+      background-color: black;
+      size: 5050px;
+      width: 70px;       /* Must be equal to height */
+      height: 70px;      /* Must be equal to width */
+      border-radius: 50%; /* Makes it a circle */
+      padding: 0;        /* Clear default padding */
+  }
+    </style>
+  </head>
+  <body>
+    <p class="title">ROCK PAPER SCISSORS</p>
+    <button class="rock" onclick="your_choice='✊'; play()">
+      ✊
+    </button>
+    <button class="paper" onclick="your_choice='✋'; play()">
+      ✋
+    </button>
+    <button class="scissors" onclick="your_choice='✌️'; play()">
+      ✌️
+    </button>
+    <div style="margin-bottom: 40px;">Content block</div>
+    <button class="reset" onclick="reset();">Reset</button>
+
+    
+    <script>
+      const choice=['✊','✋','✌️'];
+      let board=JSON.parse(localStorage.getItem('data'))||{
+        wins:0,
+        losses:0,
+        ties:0,
+      }; //converting back to json to js obj is necessary for javascript code to run.
+      let your_choice=''; let computer='';
+      let result='';
+      function play(){
+      computer=choice[Math.floor(Math.random()*choice.length)] ; //Math.random generates a no between 0 and 1 * by length makes it between ranges of array's length and math.floor makes the float an integer number.
+      if(your_choice==computer){
+        result='Tie🫠';
+        board.ties+=1;
+      }
+      else if(your_choice==='✊'&&computer==='✋'||your_choice==='✋'&&computer==='✌️'||your_choice==='✌️'&&computer==='✊'){
+        result='Lose🤓';
+        board.losses+=1;
+      }
+      else{
+        result='Win😎';
+        board.wins+=1;
+      }
+      change();
+      localStorage.setItem('data',JSON.stringify(board));
+    }
+    function reset(){
+      board.ties=0;  result='Yet to ▶️';
+      board.losses=0; computer='Yet to ▶️';
+      board.wins=0; your_choice='Yet to ▶️';
+      change();
+      localStorage.removeItem('data');
+      alert('RESET DONE!');
+    }   
+    function change(){
+      document.querySelector('.js-result').innerHTML=`You ${result}`;
+      document.querySelector('.js-choice').innerHTML=`YOU: ${your_choice} COMPUTER: ${computer}`;
+      document.querySelector('.js-score').innerHTML=`Wins:${board.wins} losses:${board.losses} ties:${board.ties}`;
+    }
+    </script>
+  </body>
+</html>
