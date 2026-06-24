@@ -1,25 +1,105 @@
 <!DOCTYPE html>
-<head>
-<style>
-  body{
-    background-color: aqua;
-  }
-  .work{
-    color: brown;
-    background-color: burlywood;
-    border: black;
-    border-radius: 10px;
-  }
-</style>
-</head>
-<body>
-  <p>I'm just testing out how functions and stuff work.</p>
-  <p id="hehe">wait is this working</p>
-  <button class="work" onclick="working();">CHECK ME OUT</button>
-  <script>
-    function working(){
-       document.getElementById('hehe').innerHTML="yup it worked"
+<html>
+  <head>
+    <title>Projects</title>
+  <style>
+    body{
+      background-color:bisque;
+      font-family: Arial;
+      text-align: center;
     }
-  </script>
+    .subscribe-button{
+      color:white;
+      background-color: black;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 50px;
+      border: none;
+      cursor:pointer;
+      margin-bottom: 80px;
+    }
+    .js-subscribed{
+      color:black ;
+      background-color:rgb(240,240,240) ;
+    }
+    .cost-input{
+      font-size: 15px;
+      padding:10px;  
+    }
+    .calculate-button{
+      background-color: green;
+      color: white;
+      border:none;
+      font-size: 15px;
+      padding: 12px 15px;  
+      cursor: pointer; 
+    }
+    .error{
+      color: red;
+    }
 
-</body>
+  </style>
+  </head>
+  <body>
+    <h3>Youtube Subscribe Button</h3>
+    <button class="js-sub subscribe-button" onclick="work();">Subscribe</button>
+    <h1 class="title">Amazon Shipping Calculator</h1> 
+    <h2>Orders under $50 have =+$10 Shipping charge</h2>
+    <h3>Orders under $100 =+$5 Shipping charge</h3>
+    <h4>Orders over $50=Free Shipping</h4>
+    <p><input class="js-input cost-input" onkeydown="enter(event);" placeholder="Cost of order" > <button class="calculate-button" onclick="cost();">Calculate</button></p>
+    <p class="cost"></p>
+    <script>
+      function work(){
+        let button=document.querySelector('.js-sub');
+        if(button.innerText==='Subscribe'){
+          button.innerText='Subscribed';
+          button.classList.add('js-subscribed');
+
+        }
+        else{
+          button.innerText='Subscribe';
+          button.classList.remove('js-subscribed');
+        }
+      }
+      /////////////////////////////////
+
+      function cost(){
+        let cost=+document.querySelector('.js-input').value;  //'+' adding to a string changes it into integer completely(all stringshould be of numbers).
+        console.log(cost);
+        if(cost<=0){
+          document.querySelector('.cost').innerHTML='Cost cannot be negative or zero';
+          document.body.querySelector('.cost').classList.add('error');
+        }
+        else if(cost<=50){
+          document.body.querySelector('.cost').classList.remove('error')
+          document.body.querySelector('.cost').innerHTML=`COST:$${cost+10}`;
+        }
+        else if(cost>50&&cost<=100){
+          document.body.querySelector('.cost').classList.remove('error')
+          document.querySelector('.cost').innerHTML=`COST:$${cost+5}`;
+        }
+        else{
+          document.body.querySelector('.cost').classList.remove('error')
+          document.querySelector('.cost').innerHTML=`COST:$${cost}`;
+        }
+      }
+      function enter(event){  //since even is an object for onkeydown only it needs to be passed as parameter to use in different function.
+        if(event.key==='Enter'){
+          console.log(event.key);
+          cost();
+        }
+        else{
+          console.log('typing')
+        }
+      }
+      
+
+
+    </script>
+
+  </body>
+</html>
