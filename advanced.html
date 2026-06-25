@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <p>Synchronous and asynchronous code . Synchronous code executes line by line meanwhile asynchronous code as in examle of setTimeinterval and setTimeout don't wait for the next time to executed set their timer and move onto the next line of the code.----</p>
+    <script>
+      console.log('testing');
+      console.log('--------------------');
+      setInterval(function(){
+        console.log("Interval");
+      },2000);  //executed after every 2sec since loading the webpage.
+      setTimeout(function(){
+        console.log("timeotut feature");
+      },3000);  //executed only once
+
+    </script>
+  </body>
+
+</html>
