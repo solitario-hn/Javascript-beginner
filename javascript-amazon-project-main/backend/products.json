@@ -395,6 +395,21 @@
     ]
   },
   {
+    "id":"90878-0807-980",
+    "image":"images/products/Screenshot 2026-06-26 233253.png",
+    "name":"Expensive Jaat Setup",
+    "rating":{
+      "stars":0,
+      "count":1
+    },
+    "priceCents":0,
+    "keywords":[
+      "jaat",
+      "expensive",
+      "gawar"
+    ]
+  },
+  {
     "id": "d2785924-743d-49b3-8f03-ec258e640503",
     "image": "images/products/women-chunky-beanie-gray.webp",
     "name": "Women's Chunky Cable Beanie - Gray",
@@ -471,6 +486,21 @@
     "keywords": [
       "cooking set",
       "kitchen"
+    ]
+  },
+  {
+    "id":"79809-90808",
+    "image":"images/products/variations/trash-can-with-foot-pedal-50-liter.jpg",
+    "name":"Trash Can with Foot Pedal - Brushed Stainless Steel",
+    "rating":{
+      "stars":4,
+      "count":890
+    },
+    "priceCents":897,
+    "keywords":[
+      "trashcan",
+      "foot",
+      "trashcan with pedal"
     ]
   },
   {
@@ -655,6 +685,22 @@
       "hoodies",
       "apparel",
       "mens"
+    ]
+  },
+  {
+    "id":"idd780080",
+    "image":"https://assets.vogue.com/photos/69daadcb5f0a84010994b7c9/master/w_2560%2Cc_limit/DIOR%2520COACHELLA%2520FITTINGS%2520SABRINA%2520CARPENTER%2520%25C2%25A9%2520Alfredo%2520Flores%2520-%2520Sarah%2520Carpenter%25202.jpeg",
+    "name":"Mine",
+    "rating":{
+      "stars":5,
+      "count":100
+    },
+    "priceCents":10000,
+    "keywords":[
+      "mine",
+      "best",
+      "sexy",
+      "dance"
     ]
   }
 ]
