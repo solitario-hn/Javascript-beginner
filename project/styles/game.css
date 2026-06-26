@@ -28,13 +28,14 @@
     text-align: center;
   }
   .reset{
-    padding: 5px;
+    padding: 6px;
     font-family:cursive;
     background-color:chartreuse;
-    border-radius: 50px;
+    border-radius: 80px;
     border: none;
     cursor: pointer;
     font-weight: bolder;
+    margin-left: 80px;
   }
   .move-icon{
     height:20px;
@@ -62,4 +63,15 @@
 .js-ch{
   height: 20px;
   vertical-align: middle;
+}
+.auto-play{
+  background-color: blanchedalmond;
+  color: darkred;
+  font-family: cursive;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 80px;
+  margin-left: 20px;
+  border: none;
+  cursor: pointer;
 }

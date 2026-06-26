@@ -10,17 +10,17 @@
     <p class="title">ROCK PAPER SCISSORS</p>
     <div class="parent">
       <div>
-    <button onclick="your_choice='rock'; play()"><img src="rock-emoji.png" class="move-icon">
+    <button class="js-rock"><img src="rock-emoji.png" class="move-icon">
     </button>
-    <button onclick="your_choice='paper'; play()"><img src="paper-emoji.png" class="move-icon">
+    <button class="js-paper"><img src="paper-emoji.png" class="move-icon">
     </button>
-    <button onclick="your_choice='scissors'; play()"><img src="scissors-emoji.png" class="move-icon">
+    <button class="js-scissors"><img src="scissors-emoji.png" class="move-icon">
     </button>
     </div>
     <p class="result js-result"></p>
     <p class="choice js-choice"></p>
     <p class="score js-score"></p>
-    <button class="reset" onclick="reset();">Reset</button></div>
+    <p><button class="reset" onclick="reset();">Reset</button><button class="auto-play js-auto-play" onclick="autoPlay()">Auto Play</button></p></div>
     <script src="scripts/game.js"></script>
   </body>
 </html>

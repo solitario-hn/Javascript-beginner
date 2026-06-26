@@ -5,7 +5,90 @@
   </head>
   <body>
     <p>Synchronous and asynchronous code . Synchronous code executes line by line meanwhile asynchronous code as in examle of setTimeinterval and setTimeout don't wait for the next time to executed set their timer and move onto the next line of the code.----</p>
+    <button class="js-button">Click Me</button>
     <script>
+      //closure is when a function such as for each will have access to it's index value as long as the foreach is running but after that the access is lost. you can't use it outside it.
+      //filter and map
+      const array=[1,2,3,4,5,'name',,[1,2,3],'damn'];
+
+      //2. The map() MethodUse map() when you want to perform the same operation on every single item. It converts each item into something else.
+
+      /*console.log(array.map((value,index)=>{
+        if(typeof(value)==='number'){//doesn't subsets the array would make the temp array as same size as of orig. and make the rest(else vakues undefined) and have index and value of aray
+        return value*2;
+        }
+      }))
+
+      const numbers=array.filter(num=>typeof(num)==='number');
+
+      const mapped=numbers.map((value,index)=>{
+        return {
+          num:value*2,
+          index:index,
+        }
+      });
+
+      const mapped2=numbers.map(num=>[num*9,'number']);
+      console.log(mapped);
+      console.log(mapped2);
+      */
+
+
+      
+
+      /*console.log(array.filter((value,index)=>{
+        if(typeof (value)==='number'){
+          return true;
+        }//type of will return me a string so compare it with a string.
+        else{
+          return false;
+        }
+      }));*/
+
+      /*console.log(array.filter((value,index)=>{
+        return typeof(value)!=='number';  //this statement returns true or false.
+      }))
+
+      /*const numbers=array.filter((value)=>{
+        return typeof(value)==='number'; //
+      })*/
+
+      /*const numbers=array.filter(value=>{  //if only one argument can remove brackets.
+        return typeof(value)==='number';
+      });
+
+      if only one paaramter and one line of code 
+      const numbers=array.filter(value=>typeof(value)==='number' );  //don't write return statement.
+      console.log(numbers);
+      .filter() creates a temporary array/stores values into an array based on truthy falsy values  */
+
+
+
+
+
+
+
+
+      /*const buttonElement=document.querySelector('.js-button');
+      const evenListener=()=>{
+        console.log('click1');
+      }
+      buttonElement.addEventListener('click',evenListener); //first parameter is the event and second is func we want to run when event happens
+
+      //buttonElement.removeEventListener('click',()=>{
+        //console.log('clicked');//to remove an event listener the event as well as func must be passed and function must be stored in a variable
+      //});
+      buttonElement.removeEventListener('click',evenListener);
+
+      buttonElement.addEventListener('click',()=>{
+        console.log('clicked2');
+      });*/
+
+
+      //make sure to don't pass eventlistener() since () will call the function itself and pass functions return value.
+
+      /*
+      
       console.log('testing');
       console.log('--------------------');
       setInterval(function(){
@@ -14,6 +97,95 @@
       setTimeout(function(){
         console.log("timeotut feature");
       },3000);  //executed only once
+      */
+
+      /*const array=['make dishes','new','old','sigma','alpha',1,2,3];
+
+      array.forEach(function(param,index){
+        console.log(param,index);
+      })    //.forEach(value,index) of the array.*/
+
+      /*const array=['wow','toing','zomato','swiggy','pasta',1,2,3,5,6];
+      const array2=array.slice();
+
+      array2.splice(0,2,'new1','new2','new3');
+      console.log(array);
+      console.log(array2);*/
+      /*
+
+      const arrowFunction=()=>{
+        console.log('hello');
+        return 89;
+      }
+
+      let value=arrowFunction();
+      console.log(value);
+
+      const arrow2=(param1,param2)=>{
+        console.log(`${param1} and ${param2} is sum ${param1+param2}`);
+      }
+      arrow2(5,6);
+
+      //if only one parameter can skip ()
+      const arrow3=param=>{
+        console.log(param+10);
+      }
+
+      arrow3(90);
+
+      //if the function is one line you can skip {}
+
+      const arrow4=param=>console.log(param+10);
+
+      arrow4(34567);
+
+      const arrow5=()=>console.log('oneline');
+
+      arrow5();
+
+      const arrow6=()=>9+89;
+
+      arrow6();
+
+      const array=['bath','shampoo','soap','rice','onion',876,3145,{'name':'ana','class':9},[69,88]]
+
+      array.forEach((param1,param2) => {
+        console.log(param1,param2);
+      });
+
+      let name='ana';
+      let age=67;
+
+      const obj3={
+        name,
+        age:age,
+        fun:()=>{
+          console.log('sample function');
+        },
+        fun1(){
+          console.log('sampled 3');
+        },
+        mean:()=>{
+          console.log('new');
+        }
+      }
+
+      console.log("-----------------------");
+      console.log(obj3.fun);
+      console.log(obj3.fun1());
+      console.log(obj3.mean);
+      console.log(obj3['fun1()']); //undefined
+      console.log(obj3['fun1']);   //return whole fun
+      console.log(obj3.mean());
+      */
+
+
+
+
+
+
+      
+
 
     </script>
   </body>

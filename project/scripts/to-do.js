@@ -13,19 +13,27 @@ function enter(event){
 function rendertodo(){
     const htmlelement=document.querySelector('.js-todo-list');
     let innertext='';
-    for(let i=0;i<list.length;i++){
-        const todoObj=list[i];
-        // const todoTask=todoObj.task;
-        // const todoDate=todoObj["dueDate"];
+    list.forEach((todoObj,index)=>{
         const {task,dueDate}=todoObj;
         const html=`
         <div>${task}</div>  
         <div>${dueDate}</div>                  
-            <button class="delete-button" onclick="list.splice(${i},1); rendertodo()">  Delete</button>`
+            <button class="delete-button js-delete-button">Delete</button>`
         innertext+=html;
-    }
+    });
     htmlelement.innerHTML=innertext;
-}
+    document.querySelectorAll('.js-delete-button').forEach((deleteButton,index)=>{
+        deleteButton.addEventListener('click',()=>{
+        list.splice(index,1); 
+        rendertodo();
+    })}); //forAll selects all the html tags with the query and puts them in an array so we used forEach array and wrote this after html.innerhtml because before that no delete button was added and it would have showed an error.
+};
+
+    //for(let i=0;i<list.length;i++){
+        //const todoObj=list[i];
+        // const todoTask=todoObj.task;
+        // const todoDate=todoObj["dueDate"];
+        //const {task,dueDate}=todoObj;
 rendertodo();
 
 function add(){
@@ -42,3 +50,11 @@ function add(){
 
     rendertodo();
 }
+
+document.querySelector('.js-add-button').addEventListener('click',add);
+
+document.querySelector('.js-task').addEventListener('keydown',(event)=>{
+    if(event.key==='Enter'){
+        add();
+    }  //example to use when cursor is in input box and you press enter add is called , same as the add box onkeydown enter calls the enter function.
+})
