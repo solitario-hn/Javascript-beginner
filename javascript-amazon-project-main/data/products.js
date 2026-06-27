@@ -1,4 +1,4 @@
-const products=[
+export const products=[
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -330,7 +330,7 @@ const products=[
   },
   {
     id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
-    image: "ihttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPi5IBI-3Qhx8vTpwP4012JyIw-og_KaIyd6ueXC2CVA&s=10",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPi5IBI-3Qhx8vTpwP4012JyIw-og_KaIyd6ueXC2CVA&s=10",
     name: "Sigma",
     rating: {
       stars: 4,

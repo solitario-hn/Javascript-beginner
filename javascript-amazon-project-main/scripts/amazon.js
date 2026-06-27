@@ -1,4 +1,5 @@
-
+import {cart,addToCart} from '../data/cart.js';
+import {products} from '../data/products.js';
 let productsHTML='';
 
 products.forEach((product)=>{
@@ -25,7 +26,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}"  >
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -46,12 +47,38 @@ products.forEach((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button data-product-id="${product.id}" class="add-to-cart-button button-primary js-add-to-cart">
             Add to Cart
           </button>
-        </div>`;
-    console.log(productsHTML);    
-});
+        </div>`;  
+});   //data attribute helps us to add any attribute to our html elemeent (kebab case data-attribute) and in func it changes into camel case camelCase  and to access all data attributes we use .dataset
 
 document.querySelector('.js-products-grid').innerHTML=productsHTML;
-console.log(document.querySelector('.js-products-grid'));
+
+function updateCartQuantity(){
+  let cartQuantity=0;
+  cart.forEach(cartItem=>{
+    cartQuantity+=cartItem.quantity;
+  });
+  document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+}
+
+document.querySelectorAll('.js-add-to-cart').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const productId=button.dataset.productId;
+    addToCart(productId);
+    updateCartQuantity();
+    console.log(cart);
+
+  })
+});
+
+const quantity=()=>{
+cart.forEach((cartItem)=>{
+  quantity+=cartItem.quantity;
+});
+}
+
+
+
+
