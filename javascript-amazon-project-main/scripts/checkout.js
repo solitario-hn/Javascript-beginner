@@ -17,10 +17,25 @@ cart.forEach((cartItem) => {
     }
   });
   /*radio selectors work on name attribute selectors with same name attribute you can only choose one of them*/
+
+  const deliveryOptionId = cartItem.deliveryOptionId;
+
+  let deliveryOption;
+
+  deliveryOptions.forEach((option) => {
+    if (option.id === deliveryOptionId) {
+      deliveryOption = option;
+    }
+  });
+
+  const today = dayjs();
+  const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  const dateString = deliveryDate.format("dddd, MMMM D");
+
   cartSummaryHTML += ` 
           <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
-              Delivery date: Tuesday, June 21
+              Delivery date: ${dateString}
             </div>
 
             <div class="cart-item-details-grid">
@@ -51,7 +66,7 @@ cart.forEach((cartItem) => {
                 <div class="delivery-options-title">
                   Choose a delivery option:
                 </div>
-                ${deliveryOptionsHTML(matchingProduct)}
+                ${deliveryOptionsHTML(matchingProduct, cartItem)}
               </div>
             </div>
           </div>    
@@ -59,7 +74,7 @@ cart.forEach((cartItem) => {
     `;
 });
 
-function deliveryOptionsHTML(matchingProduct) {
+function deliveryOptionsHTML(matchingProduct, cartItem) {
   let html = "";
   deliveryOptions.forEach((deliveryOption) => {
     const today = dayjs();
@@ -70,10 +85,12 @@ function deliveryOptionsHTML(matchingProduct) {
         ? "Free"
         : `$${formatCurrency(deliveryOption.priceCents)}`;
 
+    const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
     html += `
     
                 <div class="delivery-option">
                   <input type="radio"
+                    ${isChecked ? "checked" : ""}
                     class="delivery-option-input"
                     name="delivery-option-${matchingProduct.id}">
                   <div>
