@@ -133,6 +133,7 @@ export function renderOrderSummary() {
       updateDeliveryOption(productId, deliveryOptionId);
       console.log("wok");
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }

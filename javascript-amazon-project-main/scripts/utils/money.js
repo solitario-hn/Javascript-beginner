@@ -7,5 +7,5 @@ export function formatCurrency(priceCents) {
 // no need to put {  } for a default func.
 
 export function centsToDollar(money) {
-  return Number((money / 100).toFixed(2));
+  return Number(Math.round(money) / 100).toFixed(2);
 }
