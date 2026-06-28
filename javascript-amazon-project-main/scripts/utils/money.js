@@ -5,3 +5,7 @@ export function formatCurrency(priceCents) {
 // export default formatCurrency;
 // export default is used when you have to only export exclusively one function/variable from  the file ;
 // no need to put {  } for a default func.
+
+export function centsToDollar(money) {
+  return Number((money / 100).toFixed(2));
+}

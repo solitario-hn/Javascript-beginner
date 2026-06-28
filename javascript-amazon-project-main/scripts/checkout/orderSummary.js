@@ -11,6 +11,7 @@ import {
   getDeliveryOption,
 } from "../../data/deliveryOptions.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 //setting up date from dayjs  (external library for javascript) esm version is necessary to work with modules otherwise script tag is used to import external libraries.
 
@@ -118,6 +119,8 @@ export function renderOrderSummary() {
         `.js-cart-item-container-${productId}`,
       );
       toRemove.remove();
+      renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 

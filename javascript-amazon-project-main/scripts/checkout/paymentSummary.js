@@ -1,18 +1,16 @@
-import { cart } from "../../data/cart.js";
+import { cart, calculateCartQuantity } from "../../data/cart.js";
 import { products } from "../../data/products.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js";
+import { centsToDollar } from "../utils/money.js";
 
 console.log(cart);
 export function renderPaymentSummary() {
   console.log("Payment Summary");
   const price = itemPrice();
   const shipping = shippingPrice();
-  const totalBeforeTaxCents = itemPrice + shippingPrice;
+  const totalBeforeTaxCents = price + shipping;
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
-
-  console.log(price);
-  console.log((shippingPrice() / 100).toFixed(2));
 
   let paymentHTML = "";
 
@@ -20,34 +18,36 @@ export function renderPaymentSummary() {
           <div class="payment-summary-title">Order Summary</div>
 
           <div class="payment-summary-row">
-            <div>Items (3):</div>
-            <div class="payment-summary-money">$42.75</div>
+            <div>Items (${calculateCartQuantity()}):</div>
+            <div class="payment-summary-money">$${centsToDollar(price)}</div>
           </div>
 
           <div class="payment-summary-row">
             <div>Shipping &amp; handling:</div>
-            <div class="payment-summary-money">$4.99</div>
+            <div class="payment-summary-money">$${centsToDollar(shipping)}</div>
           </div>
 
           <div class="payment-summary-row subtotal-row">
             <div>Total before tax:</div>
-            <div class="payment-summary-money">$47.74</div>
+            <div class="payment-summary-money">$${centsToDollar(totalBeforeTaxCents)}</div>
           </div>
 
           <div class="payment-summary-row">
             <div>Estimated tax (10%):</div>
-            <div class="payment-summary-money">$4.77</div>
+            <div class="payment-summary-money">$${centsToDollar(taxCents)}</div>
           </div>
 
           <div class="payment-summary-row total-row">
             <div>Order total:</div>
-            <div class="payment-summary-money">$52.51</div>
+            <div class="payment-summary-money">$${centsToDollar(totalCents)}</div>
           </div>
 
           <button class="place-order-button button-primary">
             Place your order
           </button>    
   `;
+  console.log(paymentHTML);
+  document.querySelector(".js-payment-summary").innerHTML = paymentHTML;
 }
 
 function itemPrice() {
