@@ -1,15 +1,6 @@
 import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
-import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
-
-//setting up date from dayjs  (external library for javascript)
-
-const today = dayjs();
-console.log(today);
-const deliveryDate = today.add(7, "days");
-console.log(deliveryDate);
-console.log(deliveryDate.format("dddd,MMMM D"));
 
 let productsHTML = "";
 
@@ -72,7 +63,9 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
     addToCart(productId);
-    calculateCartQuantity(".js-cart-quantity");
+    //calculateCartQuantity(".js-cart-quantity");
+    const quantity = calculateCartQuantity();
+    document.querySelector(".js-cart-quantity").innerHTML = quantity;
     console.log(cart);
   });
 });

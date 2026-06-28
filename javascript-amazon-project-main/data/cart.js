@@ -54,7 +54,7 @@ function saveToStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-export function calculateCartQuantity(className) {
+export function calculateCartQuantity() {
   let cartQuantity = 0;
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity;
@@ -62,7 +62,8 @@ export function calculateCartQuantity(className) {
   if (cartQuantity === 0) {
     cartQuantity = "";
   }
-  document.querySelector(className).innerHTML = cartQuantity;
+  return cartQuantity;
+  // document.querySelector(className).innerHTML = cartQuantity;
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {
