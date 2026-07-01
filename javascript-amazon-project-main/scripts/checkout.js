@@ -1,7 +1,7 @@
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 
-import "../data/cart-oop.js"; //runs all the codes inside the file
+import "../data/cart-class.js"; //runs all the codes inside the file
 
 renderOrderSummary();
 renderPaymentSummary();
