@@ -1,3 +1,46 @@
+import { formatCurrency } from "../scripts/utils/money.js";
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  getImageUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getFormatCurrency() {
+    return `$${formatCurrency(this.priceCents)}`;
+  }
+
+  sizeChartHTML() {
+    return ``;
+  }
+}
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails); //if we r creating another constructor for the child class we need to call super with needed parameters so it can inherit copy all the constructors from the parent class
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  sizeChartHTML() {
+    return `<a href=${this.sizeChartLink} target="_blank" >Size Chart</a>`;
+  }
+}
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -126,8 +169,6 @@ export const products = [
     },
     priceCents: 2070,
     keywords: ["he", "him", "movie", "India"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
   },
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
@@ -230,8 +271,6 @@ export const products = [
     },
     priceCents: 1374,
     keywords: ["singer", "singers", "dua", "women", "song"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
   },
   {
     id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
@@ -518,7 +557,12 @@ export const products = [
     priceCents: 10000,
     keywords: ["mine", "best", "sexy", "dance"],
   },
-];
+].map((productDetails) => {
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails); //creates instance of clothing (object) using clothing class if type/.
+  }
+  return new Product(productDetails);
+});
 
 export function getProduct(productId) {
   let matchingProduct;

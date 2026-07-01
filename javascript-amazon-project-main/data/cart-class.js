@@ -1,16 +1,19 @@
 class Cart {
   cartItems;
-  localStorageKey;
+  #localStorageKey; //private -can only be accessed inside the class itself hence preventing the change of property by accident.
 
   constructor(localStorageKey) {
     //parameter for constructor is given when the object is created.
-    this.localStorageKey = localStorageKey; //this here refers to the object created using the class
-    this.loadFromStorage();
+    this.#localStorageKey = localStorageKey; //this here refers to the object created using the class
+    this.#loadFromStorage();
     //constructor has to be named constructor it shouldn't return anything.
   }
 
-  loadFromStorage() {
-    this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey)) || [
+  #loadFromStorage() {
+    //making a private method
+    this.cartItems = JSON.parse(
+      localStorage.getItem(this.#localStorageKey),
+    ) || [
       {
         productId: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
         quantity: 2,
@@ -24,7 +27,7 @@ class Cart {
     ];
   }
   saveToStorage() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
   }
   addToCart(productId) {
     let matchingItem;
@@ -91,3 +94,4 @@ console.log(businessCart);
 console.log(newCart);
 
 console.log(businessCart instanceof Cart); //checks if this object/instance was created from this class.
+// cart.#localStorageKey = "highhl"; private field cannot be accessed outside.
