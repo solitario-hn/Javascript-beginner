@@ -3,9 +3,7 @@ import { products } from "../../data/products.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js";
 import { centsToDollar } from "../utils/money.js";
 
-console.log(cart);
 export function renderPaymentSummary() {
-  console.log("Payment Summary");
   const price = itemPrice();
   const shipping = shippingPrice();
   const totalBeforeTaxCents = price + shipping;
@@ -46,7 +44,6 @@ export function renderPaymentSummary() {
             Place your order
           </button>    
   `;
-  console.log(paymentHTML);
   document.querySelector(".js-payment-summary").innerHTML = paymentHTML;
 }
 
