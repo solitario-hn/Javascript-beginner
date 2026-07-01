@@ -37,8 +37,9 @@ class Clothing extends Product {
   }
 
   sizeChartHTML() {
+    //super().sizChartHTML(); to access parents class method.
     return `<a href=${this.sizeChartLink} target="_blank" >Size Chart</a>`;
-  }
+  } //this will rewrite the code in the parents class function
 }
 
 export const products = [
