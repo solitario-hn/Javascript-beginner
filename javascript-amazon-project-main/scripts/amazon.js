@@ -1,11 +1,13 @@
 import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products, loadProducts } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
-let productsHTML = "";
+loadProducts(renderHomePage);
 
-products.forEach((product) => {
-  productsHTML += `
+function renderHomePage() {
+  let productsHTML = "";
+  products.forEach((product) => {
+    productsHTML += `
         <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -55,26 +57,27 @@ products.forEach((product) => {
             Add to Cart
           </button>
         </div>`;
-}); //data attribute helps us to add any attribute to our html elemeent (kebab case data-attribute) and in func it changes into camel case camelCase  and to access all data attributes we use .dataset
+  }); //data attribute helps us to add any attribute to our html elemeent (kebab case data-attribute) and in func it changes into camel case camelCase  and to access all data attributes we use .dataset
 
-document.querySelector(".js-products-grid").innerHTML = productsHTML;
+  document.querySelector(".js-products-grid").innerHTML = productsHTML;
 
-let cartQuantNow = calculateCartQuantity();
-document.querySelector(".js-cart-quantity").innerHTML = cartQuantNow || "";
+  let cartQuantNow = calculateCartQuantity();
+  document.querySelector(".js-cart-quantity").innerHTML = cartQuantNow || "";
 
-document.querySelectorAll(".js-add-to-cart").forEach((button) => {
-  button.addEventListener("click", () => {
-    const productId = button.dataset.productId;
-    addToCart(productId);
-    //calculateCartQuantity(".js-cart-quantity");
-    const quantity = calculateCartQuantity();
-    document.querySelector(".js-cart-quantity").innerHTML = quantity || "";
-    console.log(cart);
+  document.querySelectorAll(".js-add-to-cart").forEach((button) => {
+    button.addEventListener("click", () => {
+      const productId = button.dataset.productId;
+      addToCart(productId);
+      //calculateCartQuantity(".js-cart-quantity");
+      const quantity = calculateCartQuantity();
+      document.querySelector(".js-cart-quantity").innerHTML = quantity || "";
+      console.log(cart);
+    });
   });
-});
 
-const quantity = () => {
-  cart.forEach((cartItem) => {
-    quantity += cartItem.quantity;
-  });
-};
+  const quantity = () => {
+    cart.forEach((cartItem) => {
+      quantity += cartItem.quantity;
+    });
+  };
+}

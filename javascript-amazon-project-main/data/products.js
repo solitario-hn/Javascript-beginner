@@ -42,528 +42,553 @@ class Clothing extends Product {
   } //this will rewrite the code in the parents class function
 }
 
-export const products = [
-  {
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    rating: {
-      stars: 4.5,
-      count: 87,
+//TO LOAD PRODUCTS FROM BACKEND REQUEST
+
+// export let products = [];
+
+// export function loadProducts(fun) {
+//   const resp = new XMLHttpRequest();
+
+//   resp.addEventListener("load", () => {
+//     products = JSON.parse(resp.response).map((productDetails) => {
+//       if (productDetails.type === "clothing") {
+//         return new Clothing(productDetails); //creates instance of clothing (object) using clothing class if type/.
+//       }
+//       return new Product(productDetails);
+//     });
+//     fun();
+//   });
+//   resp.open("GET", "https://supersimplebackend.dev/products");
+//   resp.send();
+// }   //demo the use of backend to load products.
+
+export let products = [];
+export function loadProducts(fun) {
+  products = [
+    {
+      id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+      name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+      rating: {
+        stars: 4.5,
+        count: 87,
+      },
+      priceCents: 1090,
+      keywords: ["socks", "sports", "apparel"],
     },
-    priceCents: 1090,
-    keywords: ["socks", "sports", "apparel"],
-  },
-  {
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc9EClezS5LKOHlGzR1PJV7_Oefw5kR46EAB1ku2rjr_PTjYp5avNr_Fs&s=10",
-    name: "Bhow Bhow",
-    rating: {
-      stars: 5,
-      count: 127,
+    {
+      id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc9EClezS5LKOHlGzR1PJV7_Oefw5kR46EAB1ku2rjr_PTjYp5avNr_Fs&s=10",
+      name: "Bhow Bhow",
+      rating: {
+        stars: 5,
+        count: 127,
+      },
+      priceCents: 2095,
+      keywords: ["meme", "dog", "movie"],
     },
-    priceCents: 2095,
-    keywords: ["meme", "dog", "movie"],
-  },
-  {
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56,
+    {
+      id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+      image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+      name: "Adults Plain Cotton T-Shirt - 2 Pack",
+      rating: {
+        stars: 4.5,
+        count: 56,
+      },
+      priceCents: 799,
+      keywords: ["tshirts", "apparel", "mens"],
+      type: "clothing",
+      sizeChartLink: "images/clothing-size-chart.png",
     },
-    priceCents: 799,
-    keywords: ["tshirts", "apparel", "mens"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
-  },
-  {
-    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
-    image: "images/products/black-2-slot-toaster.jpg",
-    name: "2 Slot Toaster - Black",
-    rating: {
-      stars: 5,
-      count: 2197,
+    {
+      id: "54e0eccd-8f36-462b-b68a-8182611d9add",
+      image: "images/products/black-2-slot-toaster.jpg",
+      name: "2 Slot Toaster - Black",
+      rating: {
+        stars: 5,
+        count: 2197,
+      },
+      priceCents: 1899,
+      keywords: ["toaster", "kitchen", "appliances"],
     },
-    priceCents: 1899,
-    keywords: ["toaster", "kitchen", "appliances"],
-  },
-  {
-    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMTmFTpDU0v8OOwXXFwZK2fJYEt0SyJ6Wc6olZGdl62p852xSYOSphgysj&s=10",
-    name: "MAD",
-    rating: {
-      stars: 2,
-      count: 37,
+    {
+      id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMTmFTpDU0v8OOwXXFwZK2fJYEt0SyJ6Wc6olZGdl62p852xSYOSphgysj&s=10",
+      name: "MAD",
+      rating: {
+        stars: 2,
+        count: 37,
+      },
+      priceCents: 2067,
+      keywords: ["meme", "peacemaker", "vigilante", "movie"],
     },
-    priceCents: 2067,
-    keywords: ["meme", "peacemaker", "vigilante", "movie"],
-  },
-  {
-    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-    image: "images/products/6-piece-non-stick-baking-set.webp",
-    name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
-    rating: {
-      stars: 4.5,
-      count: 175,
+    {
+      id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+      image: "images/products/6-piece-non-stick-baking-set.webp",
+      name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
+      rating: {
+        stars: 4.5,
+        count: 175,
+      },
+      priceCents: 3499,
+      keywords: ["kitchen", "cookware"],
     },
-    priceCents: 3499,
-    keywords: ["kitchen", "cookware"],
-  },
-  {
-    id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
-    image:
-      "https://m.media-amazon.com/images/I/61P+bLxO8iL._AC_UF1000,1000_QL80_.jpg",
-    name: "O ri chiariya angana m fir aaja re",
-    rating: {
-      stars: 5,
-      count: 317,
+    {
+      id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
+      image:
+        "https://m.media-amazon.com/images/I/61P+bLxO8iL._AC_UF1000,1000_QL80_.jpg",
+      name: "O ri chiariya angana m fir aaja re",
+      rating: {
+        stars: 5,
+        count: 317,
+      },
+      priceCents: 2400,
+      keywords: ["music", "india", "he"],
     },
-    priceCents: 2400,
-    keywords: ["music", "india", "he"],
-  },
-  {
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    image: "images/products/luxury-tower-set-6-piece.jpg",
-    name: "Luxury Towel Set - Graphite Gray",
-    rating: {
-      stars: 4.5,
-      count: 144,
+    {
+      id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+      image: "images/products/luxury-tower-set-6-piece.jpg",
+      name: "Luxury Towel Set - Graphite Gray",
+      rating: {
+        stars: 4.5,
+        count: 144,
+      },
+      priceCents: 3599,
+      keywords: ["bathroom", "washroom", "restroom", "towels", "bath towels"],
     },
-    priceCents: 3599,
-    keywords: ["bathroom", "washroom", "restroom", "towels", "bath towels"],
-  },
-  {
-    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
-    image:
-      "https://hips.hearstapps.com/hmg-prod/images/589169fa-1adf-48db-8d9a-536c5c554c1d.jpeg?crop=0.328xw:0.727xh;0.349xw,0.116xh&resize=980:*",
-    name: "Sabrina",
-    rating: {
-      stars: 5,
-      count: 305,
+    {
+      id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/589169fa-1adf-48db-8d9a-536c5c554c1d.jpeg?crop=0.328xw:0.727xh;0.349xw,0.116xh&resize=980:*",
+      name: "Sabrina",
+      rating: {
+        stars: 5,
+        count: 305,
+      },
+      priceCents: 2899,
+      keywords: ["singer", "song"],
     },
-    priceCents: 2899,
-    keywords: ["singer", "song"],
-  },
-  {
-    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
-    image: "images/products/knit-athletic-sneakers-gray.jpg",
-    name: "Waterproof Knit Athletic Sneakers - Gray",
-    rating: {
-      stars: 4,
-      count: 89,
+    {
+      id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
+      image: "images/products/knit-athletic-sneakers-gray.jpg",
+      name: "Waterproof Knit Athletic Sneakers - Gray",
+      rating: {
+        stars: 4,
+        count: 89,
+      },
+      priceCents: 3390,
+      keywords: ["shoes", "running shoes", "footwear"],
     },
-    priceCents: 3390,
-    keywords: ["shoes", "running shoes", "footwear"],
-  },
-  {
-    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHeHl_BTbarpWXBFOS-VheqSJCqbfpIeYh2sULE3pfZP8seS61UqEKtJ8&s=10",
-    name: "Baawra Mann",
-    rating: {
-      stars: 5,
-      count: 235,
+    {
+      id: "5968897c-4d27-4872-89f6-5bcb052746d7",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHeHl_BTbarpWXBFOS-VheqSJCqbfpIeYh2sULE3pfZP8seS61UqEKtJ8&s=10",
+      name: "Baawra Mann",
+      rating: {
+        stars: 5,
+        count: 235,
+      },
+      priceCents: 2070,
+      keywords: ["he", "him", "movie", "India"],
     },
-    priceCents: 2070,
-    keywords: ["he", "him", "movie", "India"],
-  },
-  {
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
-    image: "images/products/round-sunglasses-black.jpg",
-    name: "Round Sunglasses",
-    rating: {
-      stars: 4.5,
-      count: 30,
+    {
+      id: "aad29d11-ea98-41ee-9285-b916638cac4a",
+      image: "images/products/round-sunglasses-black.jpg",
+      name: "Round Sunglasses",
+      rating: {
+        stars: 4.5,
+        count: 30,
+      },
+      priceCents: 1560,
+      keywords: ["accessories", "shades"],
     },
-    priceCents: 1560,
-    keywords: ["accessories", "shades"],
-  },
-  {
-    id: "04701903-bc79-49c6-bc11-1af7e3651358",
-    image: "https://mn2s.com/wp-content/uploads/2024/11/Olivia-Rodrigo.png",
-    name: "Olivia",
-    rating: {
-      stars: 4.5,
-      count: 562,
+    {
+      id: "04701903-bc79-49c6-bc11-1af7e3651358",
+      image: "https://mn2s.com/wp-content/uploads/2024/11/Olivia-Rodrigo.png",
+      name: "Olivia",
+      rating: {
+        stars: 4.5,
+        count: 562,
+      },
+      priceCents: 2499,
+      keywords: ["singer", "song", "womens", "beach", "summer"],
     },
-    priceCents: 2499,
-    keywords: ["singer", "song", "womens", "beach", "summer"],
-  },
-  {
-    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
-    image:
-      "https://a10.gaanacdn.com/gn_img/albums/0wrb4qNKLg/wrb48eXbLg/size_m.webp",
-    name: "Indian Music",
-    rating: {
-      stars: 4.5,
-      count: 232,
+    {
+      id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/0wrb4qNKLg/wrb48eXbLg/size_m.webp",
+      name: "Indian Music",
+      rating: {
+        stars: 4.5,
+        count: 232,
+      },
+      priceCents: 4599,
+      keywords: ["music", "Indian", "movie"],
     },
-    priceCents: 4599,
-    keywords: ["music", "Indian", "movie"],
-  },
-  {
-    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
-    image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
-    name: "Men's Slim-Fit Summer Shorts",
-    rating: {
-      stars: 4,
-      count: 160,
+    {
+      id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
+      image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
+      name: "Men's Slim-Fit Summer Shorts",
+      rating: {
+        stars: 4,
+        count: 160,
+      },
+      priceCents: 1699,
+      keywords: ["shorts", "apparel", "mens"],
     },
-    priceCents: 1699,
-    keywords: ["shorts", "apparel", "mens"],
-  },
-  {
-    id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
-    image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
-    name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
-    rating: {
-      stars: 5,
-      count: 846,
+    {
+      id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
+      image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
+      name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
+      rating: {
+        stars: 5,
+        count: 846,
+      },
+      priceCents: 3074,
+      keywords: ["water boiler", "appliances", "kitchen"],
     },
-    priceCents: 3074,
-    keywords: ["water boiler", "appliances", "kitchen"],
-  },
-  {
-    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65GfTQlYWrvbLRr1bHWOhPnYZMjwX9gEDIds4SHl__KIiP4VxDjOyFvOO&s=10",
-    name: "stupid hem",
-    rating: {
-      stars: 5,
-      count: 100,
+    {
+      id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65GfTQlYWrvbLRr1bHWOhPnYZMjwX9gEDIds4SHl__KIiP4VxDjOyFvOO&s=10",
+      name: "stupid hem",
+      rating: {
+        stars: 5,
+        count: 100,
+      },
+      priceCents: 2374,
+      keywords: ["singer", "song", "singers", "olivia", "napkins"],
     },
-    priceCents: 2374,
-    keywords: ["singer", "song", "singers", "olivia", "napkins"],
-  },
-  {
-    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
-    image: "images/products/straw-sunhat.webp",
-    name: "Straw Lifeguard Sun Hat",
-    rating: {
-      stars: 4,
-      count: 215,
+    {
+      id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
+      image: "images/products/straw-sunhat.webp",
+      name: "Straw Lifeguard Sun Hat",
+      rating: {
+        stars: 4,
+        count: 215,
+      },
+      priceCents: 2200,
+      keywords: ["hats", "straw hats", "summer", "apparel"],
     },
-    priceCents: 2200,
-    keywords: ["hats", "straw hats", "summer", "apparel"],
-  },
-  {
-    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
-    image: "images/products/sky-flower-stud-earrings.webp",
-    name: "Sterling Silver Sky Flower Stud Earrings",
-    rating: {
-      stars: 4.5,
-      count: 52,
+    {
+      id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
+      image: "images/products/sky-flower-stud-earrings.webp",
+      name: "Sterling Silver Sky Flower Stud Earrings",
+      rating: {
+        stars: 4.5,
+        count: 52,
+      },
+      priceCents: 1799,
+      keywords: ["jewelry", "accessories", "womens"],
     },
-    priceCents: 1799,
-    keywords: ["jewelry", "accessories", "womens"],
-  },
-  {
-    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNpzROq3EZa8SYB7VSemFGkjvqmswqpYALzq5RiKA_zEUOdVdb37xvR4oC&s=10",
-    name: "Dua",
-    rating: {
-      stars: 5,
-      count: 2465,
+    {
+      id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNpzROq3EZa8SYB7VSemFGkjvqmswqpYALzq5RiKA_zEUOdVdb37xvR4oC&s=10",
+      name: "Dua",
+      rating: {
+        stars: 5,
+        count: 2465,
+      },
+      priceCents: 1374,
+      keywords: ["singer", "singers", "dua", "women", "song"],
     },
-    priceCents: 1374,
-    keywords: ["singer", "singers", "dua", "women", "song"],
-  },
-  {
-    id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
-    image: "images/products/bathroom-rug.jpg",
-    name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
-    rating: {
-      stars: 4.5,
-      count: 119,
+    {
+      id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
+      image: "images/products/bathroom-rug.jpg",
+      name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
+      rating: {
+        stars: 4.5,
+        count: 119,
+      },
+      priceCents: 1250,
+      keywords: ["bathmat", "bathroom", "home"],
     },
-    priceCents: 1250,
-    keywords: ["bathmat", "bathroom", "home"],
-  },
-  {
-    id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPi5IBI-3Qhx8vTpwP4012JyIw-og_KaIyd6ueXC2CVA&s=10",
-    name: "Sigma",
-    rating: {
-      stars: 4,
-      count: 326,
+    {
+      id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPi5IBI-3Qhx8vTpwP4012JyIw-og_KaIyd6ueXC2CVA&s=10",
+      name: "Sigma",
+      rating: {
+        stars: 4,
+        count: 326,
+      },
+      priceCents: 2640,
+      keywords: ["meme", "flats", "womens", "footwear"],
     },
-    priceCents: 2640,
-    keywords: ["meme", "flats", "womens", "footwear"],
-  },
-  {
-    id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
-    image: "images/products/men-golf-polo-t-shirt-blue.jpg",
-    name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
-    rating: {
-      stars: 4.5,
-      count: 2556,
+    {
+      id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
+      image: "images/products/men-golf-polo-t-shirt-blue.jpg",
+      name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
+      rating: {
+        stars: 4.5,
+        count: 2556,
+      },
+      priceCents: 1599,
+      keywords: ["tshirts", "shirts", "apparel", "mens"],
+      type: "clothing",
+      sizeChartLink: "images/clothing-size-chart.png",
     },
-    priceCents: 1599,
-    keywords: ["tshirts", "shirts", "apparel", "mens"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
-  },
-  {
-    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR85h5KYB-h2KICu6Xe8TdzF1Gmpp7RlP71w07QPBRKWUd-huBp3H15iqk&s=10",
-    name: "OHOLIVIA",
-    rating: {
-      stars: 5,
-      count: 2286,
+    {
+      id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR85h5KYB-h2KICu6Xe8TdzF1Gmpp7RlP71w07QPBRKWUd-huBp3H15iqk&s=10",
+      name: "OHOLIVIA",
+      rating: {
+        stars: 5,
+        count: 2286,
+      },
+      priceCents: 8300,
+      keywords: ["oliva", "singers", "song"],
     },
-    priceCents: 8300,
-    keywords: ["oliva", "singers", "song"],
-  },
-  {
-    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
-    image: "images/products/duvet-cover-set-blue-twin.jpg",
-    name: "Duvet Cover Set with Zipper Closure",
-    rating: {
-      stars: 4,
-      count: 456,
+    {
+      id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
+      image: "images/products/duvet-cover-set-blue-twin.jpg",
+      name: "Duvet Cover Set with Zipper Closure",
+      rating: {
+        stars: 4,
+        count: 456,
+      },
+      priceCents: 2399,
+      keywords: ["bedroom", "bed sheets", "sheets", "covers", "home"],
     },
-    priceCents: 2399,
-    keywords: ["bedroom", "bed sheets", "sheets", "covers", "home"],
-  },
-  {
-    id: "90878-0807-980",
-    image: "images/products/Screenshot 2026-06-26 233253.png",
-    name: "Expensive Jaat Setup",
-    rating: {
-      stars: 0,
-      count: 1,
+    {
+      id: "90878-0807-980",
+      image: "images/products/Screenshot 2026-06-26 233253.png",
+      name: "Expensive Jaat Setup",
+      rating: {
+        stars: 0,
+        count: 1,
+      },
+      priceCents: 0,
+      keywords: ["jaat", "expensive", "gawar"],
     },
-    priceCents: 0,
-    keywords: ["jaat", "expensive", "gawar"],
-  },
-  {
-    id: "d2785924-743d-49b3-8f03-ec258e640503",
-    image:
-      "https://m.media-amazon.com/images/M/MV5BNDlkM2RhYzgtZDNkNS00Yjg0LWIyMDQtNjNiYjVhNWIwZWYyXkEyXkFqcGc@._V1_.jpg",
-    name: "Dinner is Ready",
-    rating: {
-      stars: 5,
-      count: 83,
+    {
+      id: "d2785924-743d-49b3-8f03-ec258e640503",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BNDlkM2RhYzgtZDNkNS00Yjg0LWIyMDQtNjNiYjVhNWIwZWYyXkEyXkFqcGc@._V1_.jpg",
+      name: "Dinner is Ready",
+      rating: {
+        stars: 5,
+        count: 83,
+      },
+      priceCents: 1250,
+      keywords: ["meme", "he", "beanies", "tuques", "apparel", "womens"],
     },
-    priceCents: 1250,
-    keywords: ["meme", "he", "beanies", "tuques", "apparel", "womens"],
-  },
-  {
-    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
-    image:
-      "https://m.media-amazon.com/images/M/MV5BNjEzNDk5ZjUtZGY4NC00Y2U4LWFiYjItZGQ0NjdmOWI2NjFlXkEyXkFqcGc@._V1_.jpg",
-    name: "HEM",
-    rating: {
-      stars: 5,
-      count: 1,
+    {
+      id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BNjEzNDk5ZjUtZGY4NC00Y2U4LWFiYjItZGQ0NjdmOWI2NjFlXkEyXkFqcGc@._V1_.jpg",
+      name: "HEM",
+      rating: {
+        stars: 5,
+        count: 1,
+      },
+      priceCents: 0,
+      keywords: ["him", "ahem", "hem"],
     },
-    priceCents: 0,
-    keywords: ["him", "ahem", "hem"],
-  },
-  {
-    id: "1c079479-8586-494f-ab53-219325432536",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Tjd4gY5LeycRCGUjqkRzyiA-F_jhd529kUO5ZntfTWlFtXmRE4R4tUo&s=10",
-    name: "Smoker",
-    rating: {
-      stars: 3.5,
-      count: 229,
+    {
+      id: "1c079479-8586-494f-ab53-219325432536",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Tjd4gY5LeycRCGUjqkRzyiA-F_jhd529kUO5ZntfTWlFtXmRE4R4tUo&s=10",
+      name: "Smoker",
+      rating: {
+        stars: 3.5,
+        count: 229,
+      },
+      priceCents: 3890,
+      keywords: ["Hem", "matthew", "smoke", "men"],
     },
-    priceCents: 3890,
-    keywords: ["Hem", "matthew", "smoke", "men"],
-  },
-  {
-    id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
-    image: "images/products/men-navigator-sunglasses-brown.jpg",
-    name: "Men's Navigator Sunglasses Pilot",
-    rating: {
-      stars: 3.5,
-      count: 42,
+    {
+      id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
+      image: "images/products/men-navigator-sunglasses-brown.jpg",
+      name: "Men's Navigator Sunglasses Pilot",
+      rating: {
+        stars: 3.5,
+        count: 42,
+      },
+      priceCents: 1690,
+      keywords: ["sunglasses", "glasses", "accessories", "shades"],
     },
-    priceCents: 1690,
-    keywords: ["sunglasses", "glasses", "accessories", "shades"],
-  },
-  {
-    id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
-    image:
-      "https://static.independent.co.uk/2025/02/13/09/newFile-3.jpg?width=1200&height=800&crop=1200:800",
-    name: "Sigma-haha",
-    rating: {
-      stars: 4.5,
-      count: 511,
+    {
+      id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
+      image:
+        "https://static.independent.co.uk/2025/02/13/09/newFile-3.jpg?width=1200&height=800&crop=1200:800",
+      name: "Sigma-haha",
+      rating: {
+        stars: 4.5,
+        count: 511,
+      },
+      priceCents: 6797,
+      keywords: ["matthew", "matt"],
     },
-    priceCents: 6797,
-    keywords: ["matthew", "matt"],
-  },
-  {
-    id: "79809-90808",
-    image: "images/products/variations/trash-can-with-foot-pedal-50-liter.jpg",
-    name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
-    rating: {
-      stars: 4,
-      count: 890,
+    {
+      id: "79809-90808",
+      image:
+        "images/products/variations/trash-can-with-foot-pedal-50-liter.jpg",
+      name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
+      rating: {
+        stars: 4,
+        count: 890,
+      },
+      priceCents: 897,
+      keywords: ["trashcan", "foot", "trashcan with pedal"],
     },
-    priceCents: 897,
-    keywords: ["trashcan", "foot", "trashcan with pedal"],
-  },
-  {
-    id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
-    image: "images/products/vanity-mirror-silver.jpg",
-    name: "Vanity Mirror with Heavy Base - Chrome",
-    rating: {
-      stars: 4.5,
-      count: 130,
+    {
+      id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
+      image: "images/products/vanity-mirror-silver.jpg",
+      name: "Vanity Mirror with Heavy Base - Chrome",
+      rating: {
+        stars: 4.5,
+        count: 130,
+      },
+      priceCents: 1649,
+      keywords: ["bathroom", "washroom", "mirrors", "home"],
     },
-    priceCents: 1649,
-    keywords: ["bathroom", "washroom", "mirrors", "home"],
-  },
-  {
-    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
-    image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
-    name: "Women's Fleece Jogger Sweatpant",
-    rating: {
-      stars: 4.5,
-      count: 248,
+    {
+      id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
+      image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
+      name: "Women's Fleece Jogger Sweatpant",
+      rating: {
+        stars: 4.5,
+        count: 248,
+      },
+      priceCents: 2400,
+      keywords: ["pants", "sweatpants", "jogging", "apparel", "womens"],
     },
-    priceCents: 2400,
-    keywords: ["pants", "sweatpants", "jogging", "apparel", "womens"],
-  },
-  {
-    id: "d339adf3-e004-4c20-a120-40e8874c66cb",
-    image: "images/products/double-elongated-twist-french-wire-earrings.webp",
-    name: "Double Oval Twist French Wire Earrings - Gold",
-    rating: {
-      stars: 4.5,
-      count: 117,
+    {
+      id: "d339adf3-e004-4c20-a120-40e8874c66cb",
+      image: "images/products/double-elongated-twist-french-wire-earrings.webp",
+      name: "Double Oval Twist French Wire Earrings - Gold",
+      rating: {
+        stars: 4.5,
+        count: 117,
+      },
+      priceCents: 2400,
+      keywords: ["accessories", "womens"],
     },
-    priceCents: 2400,
-    keywords: ["accessories", "womens"],
-  },
-  {
-    id: "d37a651a-d501-483b-aae6-a9659b0757a0",
-    image: "images/products/round-airtight-food-storage-containers.jpg",
-    name: "Round Airtight Food Storage Containers - 5 Piece",
-    rating: {
-      stars: 4,
-      count: 126,
+    {
+      id: "d37a651a-d501-483b-aae6-a9659b0757a0",
+      image: "images/products/round-airtight-food-storage-containers.jpg",
+      name: "Round Airtight Food Storage Containers - 5 Piece",
+      rating: {
+        stars: 4,
+        count: 126,
+      },
+      priceCents: 2899,
+      keywords: ["boxes", "food containers", "kitchen"],
     },
-    priceCents: 2899,
-    keywords: ["boxes", "food containers", "kitchen"],
-  },
-  {
-    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
-    image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
-    name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
-    rating: {
-      stars: 4.5,
-      count: 1211,
+    {
+      id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
+      image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
+      name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
+      rating: {
+        stars: 4.5,
+        count: 1211,
+      },
+      priceCents: 2250,
+      keywords: ["coffeemakers", "kitchen", "appliances"],
     },
-    priceCents: 2250,
-    keywords: ["coffeemakers", "kitchen", "appliances"],
-  },
-  {
-    id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwiEpUlO8HQS0xcVfYd3pk1ERQiZSYcX-OIzsqrZKmfC2--e5iirkhiD33&s=10",
-    name: "Matthew",
-    rating: {
-      stars: 5,
-      count: 10900,
+    {
+      id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwiEpUlO8HQS0xcVfYd3pk1ERQiZSYcX-OIzsqrZKmfC2--e5iirkhiD33&s=10",
+      name: "Matthew",
+      rating: {
+        stars: 5,
+        count: 10900,
+      },
+      priceCents: 30990,
+      keywords: ["literallyme", "matthew"],
     },
-    priceCents: 30990,
-    keywords: ["literallyme", "matthew"],
-  },
-  {
-    id: "8a53b080-6d40-4a65-ab26-b24ecf700bce",
-    image: "images/products/cotton-bath-towels-teal.webp",
-    name: "100% Cotton Bath Towels - 2 Pack, Light Teal",
-    rating: {
-      stars: 4.5,
-      count: 93,
+    {
+      id: "8a53b080-6d40-4a65-ab26-b24ecf700bce",
+      image: "images/products/cotton-bath-towels-teal.webp",
+      name: "100% Cotton Bath Towels - 2 Pack, Light Teal",
+      rating: {
+        stars: 4.5,
+        count: 93,
+      },
+      priceCents: 2110,
+      keywords: ["bathroom", "home", "towels"],
     },
-    priceCents: 2110,
-    keywords: ["bathroom", "home", "towels"],
-  },
-  {
-    id: "10ed8504-57db-433c-b0a3-fc71a35c88a1",
-    image: "images/products/knit-athletic-sneakers-pink.webp",
-    name: "Waterproof Knit Athletic Sneakers - Pink",
-    rating: {
-      stars: 4,
-      count: 89,
+    {
+      id: "10ed8504-57db-433c-b0a3-fc71a35c88a1",
+      image: "images/products/knit-athletic-sneakers-pink.webp",
+      name: "Waterproof Knit Athletic Sneakers - Pink",
+      rating: {
+        stars: 4,
+        count: 89,
+      },
+      priceCents: 3390,
+      keywords: ["shoes", "running shoes", "footwear", "womens"],
     },
-    priceCents: 3390,
-    keywords: ["shoes", "running shoes", "footwear", "womens"],
-  },
-  {
-    id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
-    image: "images/products/countertop-blender-64-oz.jpg",
-    name: "Countertop Blender - 64oz, 1400 Watts",
-    rating: {
-      stars: 4,
-      count: 3,
+    {
+      id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
+      image: "images/products/countertop-blender-64-oz.jpg",
+      name: "Countertop Blender - 64oz, 1400 Watts",
+      rating: {
+        stars: 4,
+        count: 3,
+      },
+      priceCents: 10747,
+      keywords: ["food blenders", "kitchen", "appliances"],
     },
-    priceCents: 10747,
-    keywords: ["food blenders", "kitchen", "appliances"],
-  },
-  {
-    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
-    image: "images/products/floral-mixing-bowl-set.jpg",
-    name: "10-Piece Mixing Bowl Set with Lids - Floral",
-    rating: {
-      stars: 5,
-      count: 679,
+    {
+      id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
+      image: "images/products/floral-mixing-bowl-set.jpg",
+      name: "10-Piece Mixing Bowl Set with Lids - Floral",
+      rating: {
+        stars: 5,
+        count: 679,
+      },
+      priceCents: 3899,
+      keywords: ["mixing bowls", "baking", "cookware", "kitchen"],
     },
-    priceCents: 3899,
-    keywords: ["mixing bowls", "baking", "cookware", "kitchen"],
-  },
-  {
-    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
-    image: "images/products/kitchen-paper-towels-30-pack.jpg",
-    name: "2-Ply Kitchen Paper Towels - 30 Pack",
-    rating: {
-      stars: 4.5,
-      count: 1045,
+    {
+      id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
+      image: "images/products/kitchen-paper-towels-30-pack.jpg",
+      name: "2-Ply Kitchen Paper Towels - 30 Pack",
+      rating: {
+        stars: 4.5,
+        count: 1045,
+      },
+      priceCents: 5799,
+      keywords: ["kitchen", "kitchen towels", "tissues"],
     },
-    priceCents: 5799,
-    keywords: ["kitchen", "kitchen towels", "tissues"],
-  },
-  {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
-    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
-    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
-    rating: {
-      stars: 4.5,
-      count: 3157,
+    {
+      id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+      image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+      name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+      rating: {
+        stars: 4.5,
+        count: 3157,
+      },
+      priceCents: 2400,
+      keywords: ["sweaters", "hoodies", "apparel", "mens"],
     },
-    priceCents: 2400,
-    keywords: ["sweaters", "hoodies", "apparel", "mens"],
-  },
-  {
-    id: "idd780080",
-    image:
-      "https://assets.vogue.com/photos/69daadcb5f0a84010994b7c9/master/w_2560%2Cc_limit/DIOR%2520COACHELLA%2520FITTINGS%2520SABRINA%2520CARPENTER%2520%25C2%25A9%2520Alfredo%2520Flores%2520-%2520Sarah%2520Carpenter%25202.jpeg",
-    name: "Mine",
-    rating: {
-      stars: 5,
-      count: 100,
+    {
+      id: "idd780080",
+      image:
+        "https://assets.vogue.com/photos/69daadcb5f0a84010994b7c9/master/w_2560%2Cc_limit/DIOR%2520COACHELLA%2520FITTINGS%2520SABRINA%2520CARPENTER%2520%25C2%25A9%2520Alfredo%2520Flores%2520-%2520Sarah%2520Carpenter%25202.jpeg",
+      name: "Mine",
+      rating: {
+        stars: 5,
+        count: 100,
+      },
+      priceCents: 10000,
+      keywords: ["mine", "best", "sexy", "dance"],
     },
-    priceCents: 10000,
-    keywords: ["mine", "best", "sexy", "dance"],
-  },
-].map((productDetails) => {
-  if (productDetails.type === "clothing") {
-    return new Clothing(productDetails); //creates instance of clothing (object) using clothing class if type/.
-  }
-  return new Product(productDetails);
-});
+  ].map((productDetails) => {
+    if (productDetails.type === "clothing") {
+      return new Clothing(productDetails); //creates instance of clothing (object) using clothing class if type/.
+    }
+    return new Product(productDetails);
+  });
+  fun();
+} //for now we are using hardcoded products file rather than backend for personal preferences.
 
 export function getProduct(productId) {
   let matchingProduct;
